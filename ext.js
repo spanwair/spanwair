@@ -1,16 +1,1 @@
-(async () => {
-  const ch = document.getElementById('changeble');
-  const uP = await axios.get('under_preparation.json');
-  const countryLanguage = await axios.get('country_language.json');
-  const iP = await axios.get('https://geolocation-db.com/json/');
-  if (!!uP && !!iP && !!uP.data && !!iP.data) {
-    if (!!iP.data.country_code) {
-      const c = iP.data.country_code || '';
-      const foundLanguage = countryLanguage.data[c] || 'GB';
-      const fI = uP.data.find(u => u.symbol === foundLanguage);
-      if (!!fI) {
-        ch.innerText = fI.text;
-      }
-    }
-  }
-})();
+(async()=>{const a=document.getElementById("changeble"),t=await axios.get("under_preparation.json"),o=await axios.get("country_language.json"),n=await axios.get("https://geolocation-db.com/json/");if(t&&n&&t.data&&n.data&&n.data.country_code){const e=n.data.country_code||"",d=o.data[e]||"GB",c=t.data.find(a=>a.symbol===d);c&&(a.innerText=c.text)}})();
